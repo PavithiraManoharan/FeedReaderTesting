@@ -27,7 +27,7 @@ $(function() {
         });
 
 
-        /* TODO: Write a test that loops through each feed
+        /* A test that loops through each feed
          * in the allFeeds object and ensures it has a URL defined
          * and that the URL is not empty.
          */
@@ -39,7 +39,7 @@ $(function() {
        });
 
 
-        /* TODO: Write a test that loops through each feed
+        /* A test that loops through each feed
          * in the allFeeds object and ensures it has a name defined
          * and that the name is not empty.
          */
@@ -51,23 +51,18 @@ $(function() {
         });
     });
 
-
-    /* TODO: Write a new test suite named "The menu" */
     describe('The menu', function() {
         
-        /* TODO: Write a test that ensures the menu element is
-        * hidden by default. You'll have to analyze the HTML and
-        * the CSS to determine how we're performing the
-        * hiding/showing of the menu element.
+        /* A test that ensures the menu element is hidden by default. 
         */
         it('is hidden by default', function() {
             const isMenuHidden = document.querySelector('body').classList.contains('menu-hidden');
             expect(isMenuHidden).toBe(true);
         });
 
-        /* TODO: Write a test that ensures the menu changes
+        /* A test that ensures the menu changes
         * visibility when the menu icon is clicked. This test
-        * should have two expectations: does the menu display when
+        * has two expectations: does the menu display when
         * clicked and does it hide when clicked again.
         */
         it('changes visibility when the menu icon is clicked', function() {
@@ -84,13 +79,10 @@ $(function() {
 
     });
 
-    /* TODO: Write a new test suite named "Initial Entries" */
     describe('Initial entries', function() {
-        /* TODO: Write a test that ensures when the loadFeed
+        /* A test that ensures when the loadFeed
          * function is called and completes its work, there is at least
          * a single .entry element within the .feed container.
-         * Remember, loadFeed() is asynchronous so this test will require
-         * the use of Jasmine's beforeEach and asynchronous done() function.
          */
         beforeEach(function(done) {
             loadFeed(0, done);
@@ -98,30 +90,36 @@ $(function() {
         
         it('should be loaded in the feed', function(done){
             const feedElement = document.querySelector('.feed');
+            /**
+             * The child elements are .entry elements and can be checked with the hasChildNodes() method
+             */
             expect(feedElement.hasChildNodes()).toBe(true);
             expect(feedElement.childNodes.length).toBeGreaterThan(0);
             done();
         });
     });
 
-        
-
-    /* TODO: Write a new test suite named "New Feed Selection" */
     describe('New Feed Selection', function() {
-        /* TODO: Write a test that ensures when a new feed is loaded
+        /* A test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
-         * Remember, loadFeed() is asynchronous.
          */
-        let oldFeed;
+        let firstFeed;
         beforeEach(function(done) {
             loadFeed(0, function() {
-                oldFeed = document.querySelector('.feed').innerHTML;
+                /**
+                 * The HTML content of the current feed is saved in the first feed's callback and then the next feed is called.
+                 */
+                firstFeed = document.querySelector('.feed').innerHTML;
                 loadFeed(1, done);
             });
         });
 
         it('loads new and different content', function(done) {
-            expect(document.querySelector('.feed').innerHTML).not.toBe(oldFeed);
+            /**
+             * This function is the callback of the second feed. Here the first Feed's HTML is compared to 
+             * check if the content has been actually changed.
+             */
+            expect(document.querySelector('.feed').innerHTML).not.toBe(firstFeed);
             done();
         });
     });
