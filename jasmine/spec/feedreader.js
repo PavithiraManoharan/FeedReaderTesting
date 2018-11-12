@@ -57,6 +57,7 @@ $(function() {
         */
         it('is hidden by default', function() {
             const isMenuHidden = document.querySelector('body').classList.contains('menu-hidden');
+            expect(isMenuHidden).toBeDefined();
             expect(isMenuHidden).toBe(true);
         });
 
@@ -93,6 +94,7 @@ $(function() {
             /**
              * The child elements are .entry elements and can be checked with the hasChildNodes() method
              */
+            expect(feedElement).toBeDefined();
             expect(feedElement.hasChildNodes()).toBe(true);
             expect(feedElement.childNodes.length).toBeGreaterThan(0);
             done();
