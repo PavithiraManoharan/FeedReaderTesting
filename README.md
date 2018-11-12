@@ -2,6 +2,7 @@
 
 Implementing unit testing in Javascript applications using the Jasmine Test Framework.
 
+The Repository is published at : [https://pavithiramanoharan.github.io/FeedReaderTesting/](https://pavithiramanoharan.github.io/FeedReaderTesting/)
 
 # Project Overview
 
