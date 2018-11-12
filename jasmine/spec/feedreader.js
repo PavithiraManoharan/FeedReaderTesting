@@ -100,7 +100,7 @@ $(function() {
             /**
              * Check if Entries exist
              */
-            const entries = document.querySelector('.feed .entry');
+            const entries = feedElement.querySelectorAll('.entry');
             expect(entries).toBeDefined();
             if(entries) {
                 expect(entries.innerHTML.length).toBeGreaterThan(0);
