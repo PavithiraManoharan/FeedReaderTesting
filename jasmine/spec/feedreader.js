@@ -103,7 +103,7 @@ $(function() {
             const entries = feedElement.querySelectorAll('.entry');
             expect(entries).toBeDefined();
             if(entries) {
-                expect(entries.innerHTML.length).toBeGreaterThan(0);
+                expect(entries.length).toBeGreaterThan(0);
             }
             done();
         });
