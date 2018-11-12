@@ -102,7 +102,9 @@ $(function() {
              */
             const entries = document.querySelector('.feed .entry');
             expect(entries).toBeDefined();
-            expect(entries.length).toBeGreaterThan(0);
+            if(entries) {
+                expect(entries.innerHTML.length).toBeGreaterThan(0);
+            }
             done();
         });
     });
