@@ -92,11 +92,17 @@ $(function() {
         it('should be loaded in the feed', function(done){
             const feedElement = document.querySelector('.feed');
             /**
-             * The child elements are .entry elements and can be checked with the hasChildNodes() method
+             * Check if Feed exists and has children nodes
              */
             expect(feedElement).toBeDefined();
             expect(feedElement.hasChildNodes()).toBe(true);
             expect(feedElement.childNodes.length).toBeGreaterThan(0);
+            /**
+             * Check if Entries exist
+             */
+            const entries = document.querySelector('.feed .entry');
+            expect(entries).toBeDefined();
+            expect(entries.length).toBeGreaterThan(0);
             done();
         });
     });
